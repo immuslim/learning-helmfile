@@ -1,0 +1,6 @@
+creation_rules:
+  - shamir_threshold: 1
+    path_regex: "stg/*"
+    key_groups:
+      - age:
+        - age1turq833hg3958lwfa20qmmhgddewp265jzc9hkqzzylzgqcw8umsdvnhtj
