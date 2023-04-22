@@ -10,4 +10,19 @@ releases:
     labels:
       tools: nginx
     wait: true
+    values:
+      - stg/nginx.yaml
+    installed: {{ requiredEnv "ENV" | eq "stg" }}
+
+  - name: redis
+    namespace: default
+    chart: bitnami/redis
+    version: ~17.9.5
+    labels:
+      tools: redis
+    wait: true
+    values:
+      - stg/redis.yaml
+  
+  
   
