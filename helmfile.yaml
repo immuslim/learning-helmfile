@@ -24,11 +24,11 @@ releases:
     values:
       - '{{ requiredEnv "ENV"}}/redis.yaml'
     installed: {{ requiredEnv "ENV" | eq "stg" }}
+    
 
   - name: rabbitmq
-    namespace: rabbitmq
+    namespace: default
     chart: bitnami/rabbitmq
-    createNamespace: true
     version: ~11.13.0
     labels:
       tools: rabbitmq
@@ -38,8 +38,11 @@ releases:
     secrets:
       - '{{ requiredEnv "ENV"}}/rabbitmq-secret.yaml.enc'
     installed: {{ requiredEnv "ENV" | eq "stg" }}
-
-  
+    hooks:
+      - events: ["postsync"]
+        showlogs: true
+        command: kubectl
+        args: ['apply', '--filename','{{ requiredEnv "ENV" }}/rabbitmq-secret.yaml.enc']
   
   
   
