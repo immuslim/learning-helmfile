@@ -26,8 +26,9 @@ releases:
     installed: {{ requiredEnv "ENV" | eq "stg" }}
 
   - name: rabbitmq
-    namespace: default
+    namespace: rabbitmq
     chart: bitnami/rabbitmq
+    createNamespace: true
     version: ~11.13.0
     labels:
       tools: rabbitmq
@@ -36,6 +37,7 @@ releases:
       - '{{ requiredEnv "ENV"}}/rabbitmq.yaml'
     secrets:
       - '{{ requiredEnv "ENV"}}/rabbitmq-secret.yaml.enc'
+    installed: {{ requiredEnv "ENV" | eq "stg" }}
 
   
   
