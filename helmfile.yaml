@@ -11,7 +11,7 @@ releases:
       tools: rabbitmq
     wait: true
     secrets:
-      - rabbitmq-secret.yaml.enc
+      - stg/rabbitmq-secret.yaml.enc
 
   
   
