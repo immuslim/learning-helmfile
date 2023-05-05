@@ -33,8 +33,6 @@ releases:
     labels:
       tools: rabbitmq
     wait: true
-    values:
-      - '{{ requiredEnv "ENV"}}/rabbitmq.yaml'
     secrets:
       - '{{ requiredEnv "ENV"}}/rabbitmq-secret.yaml.enc'
     installed: {{ requiredEnv "ENV" | eq "stg" }}
