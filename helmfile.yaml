@@ -3,27 +3,27 @@ repositories:
     url: https://charts.bitnami.com/bitnami
 
 releases:
-  - name: nginx
-    namespace: default
-    chart: bitnami/nginx
-    version: ~13.2.33
-    labels:
-      tools: nginx
-    wait: true
-    values:
-      - '{{ requiredEnv "ENV"}}/nginx.yaml'
-    installed: {{ requiredEnv "ENV" | eq "stg" }}
+  # - name: nginx
+  #   namespace: default
+  #   chart: bitnami/nginx
+  #   version: ~13.2.33
+  #   labels:
+  #     tools: nginx
+  #   wait: true
+  #   values:
+  #     - '{{ requiredEnv "ENV"}}/nginx.yaml'
+  #   installed: {{ requiredEnv "ENV" | eq "stg" }}
 
-  - name: redis
-    namespace: default
-    chart: bitnami/redis
-    version: ~17.9.5
-    labels:
-      tools: redis
-    wait: true
-    values:
-      - '{{ requiredEnv "ENV"}}/redis.yaml'
-    installed: {{ requiredEnv "ENV" | eq "stg" }}
+  # - name: redis
+  #   namespace: default
+  #   chart: bitnami/redis
+  #   version: ~17.9.5
+  #   labels:
+  #     tools: redis
+  #   wait: true
+  #   values:
+  #     - '{{ requiredEnv "ENV"}}/redis.yaml'
+  #   installed: {{ requiredEnv "ENV" | eq "stg" }}
     
 
   - name: rabbitmq
@@ -38,6 +38,7 @@ releases:
     secrets:
       - '{{ requiredEnv "ENV"}}/rabbitmq-secret.yaml.enc'
     installed: {{ requiredEnv "ENV" | eq "stg" }}
+
   
   
   
