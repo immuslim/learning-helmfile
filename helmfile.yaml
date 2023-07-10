@@ -20,6 +20,6 @@ releases:
     labels:
       tools: nginx
     wait: true
-    secrets:
-      - stg/rabbitmq-secret.yaml.enc
+    values:
+      - stg/nginx.yaml
   
