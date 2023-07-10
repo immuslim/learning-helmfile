@@ -13,6 +13,13 @@ releases:
     secrets:
       - stg/rabbitmq-secret.yaml.enc
 
-  
-  
+  - name: nginx
+    namespace: default
+    chart: bitnami/nginx
+    version: ~15.1.0
+    labels:
+      tools: nginx
+    wait: true
+    secrets:
+      - stg/rabbitmq-secret.yaml.enc
   
