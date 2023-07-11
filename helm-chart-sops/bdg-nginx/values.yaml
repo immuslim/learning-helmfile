@@ -1,61 +1,21 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: bdg-nginx
-  # You'll usually want to add your resources to the argocd namespace.
-  namespace: argocd
-  # Add this finalizer ONLY if you want these to cascade delete.
-  finalizers:
-    # The default behaviour is foreground cascading deletion
-    - resources-finalizer.argocd.argoproj.io
-    # Alternatively, you can use background cascading deletion
-    # - resources-finalizer.argocd.argoproj.io/background
-  # Add labels to your application object.
-  labels:
-    name: bdg-nginx
-spec:
-  # The project the application belongs to.
-  project: default
-  # Source of the application manifests
-  source:
-    repoURL: https://charts.bitnami.com/bitnami  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: 15.1.0  # For Helm, this refers to the chart version.
-    # helm specific config
-    chart: nginx # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
-    helm:
-      # Release name override (defaults to application name)
-      releaseName: bdg-nginx
-      # valueFiles:
-      # - values-prod.yaml
-  # Destination cluster and namespace to deploy the application
-  destination:
-    # cluster API URL
-    server: https://kubernetes.default.svc
-    # or cluster name
-    # name: in-cluster
-    # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
-    namespace: default
-  # Sync policy
-  syncPolicy:
-    automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
-      prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
-      allowEmpty: false # Allows deleting all application resources during automatic syncing ( false by default ).
-
-
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: app
-# spec:
-#   source:
-#     helm:
-#       valueFiles:
-#         # if AWS KMS or GCP is used
-#         - secrets://https://raw.githubusercontent.com/org/repo/ref/pathtofile.yml
-#         # if gpg or age encrypted is used.
-#         - secrets+gpg-import:///helm-secrets-private-keys/key.asc?https://raw.githubusercontent.com/org/repo/ref/pathtofile.yml
-#         - secrets+gpg-import-kubernetes://argocd/helm-secrets-private-keys#key.asc?https://raw.githubusercontent.com/org/repo/ref/pathtofile.yml
-#         # if HELM_SECRETS_URL_VARIABLE_EXPANSION is set to true, GITHUB_TOKEN needs to be set as environment variables else where, e.g. at the deployment spec
-#         - secrets://https://$${GITHUB_TOKEN}@raw.githubusercontent.com/org/repo/ref/pathtofile.yml
-#         # Using https://github.com/aslafy-z/helm-git
-#         - secrets+gpg-import-kubernetes://argocd/helm-secrets-private-keys#key.asc?git+https://github.com/jkroepke/helm-secrets@tests/assets/values/sops/secrets.yaml?ref=main"
+sops:
+    shamir_threshold: 1
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1turq833hg3958lwfa20qmmhgddewp265jzc9hkqzzylzgqcw8umsdvnhtj
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBjRzBrQVQ4N0EwcjR4a215
+            WFhYelhXZU5rTEU0VVRZUmZVQjBvUXBNbEdFCm1KdUpWdkdibHdHV0tkL1RiRzlp
+            TG9hbnNxS21rVTRiWDk1V3pWRXl5SW8KLS0tIFQ3MUE3RExRbEpzWXdkL1JVV2Nl
+            WjB1UE5XcnVyOGZUbnpNV3JjUFNaWGsK/6sUKfzxwXKld+H4x8cwltzotdLRLPAP
+            FCM6Q8UlOvO3wtFVs8dKzUfyuR6YmXOE2tLqm524wIIgxUqyrahEwQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-07-11T09:56:36Z"
+    mac: ENC[AES256_GCM,data:tEliLti9y4eSVY7Cc1o1Z5x8IPYpJG38LIUMgM6lDz9tseV9HrcDSLq2VPiRLuskwnookIjZZtmj+7tTCJ7nOKiKg40C2wtR97rN3cG5DdXNM58eNhZkdMyYzk82ZuUM1uMmlmz2WfBU/I0kptR/x5ZZszXirqJInLbFjAloxmE=,iv:zoO06kuJYFigP44k4/heEG5r0gaGmChYEGW5f4L+XFw=,tag:0CxX31koK8K3qs5l1NILMw==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
