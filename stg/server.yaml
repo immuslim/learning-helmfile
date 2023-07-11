@@ -1,0 +1,14 @@
+image:
+  repository: "nginx"
+  tag: latest
+
+server: 
+  enabled: true
+
+  replicas: 1
+
+  liveness:
+    enabled: false
+    
+  readiness:
+    enabled: false

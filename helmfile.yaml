@@ -2,6 +2,12 @@ repositories:
   - name: bitnami
     url: https://charts.bitnami.com/bitnami
 
+  - name: kitabisa
+    url: chart.kitabi.se
+    username: rider
+    password: H2m5A4a5bHmY5jG6
+
+
 releases:
   - name: rabbitmq
     namespace: default
@@ -22,4 +28,18 @@ releases:
     wait: true
     values:
       - stg/nginx.yaml
+
+  - name: server
+    namespace: default
+    chart: kitabisa/app
+    version: 0.17.8-alpha.4
+    labels:
+      tools: server
+    wait: true
+    values:
+      - stg/server.yaml
+
+  
+
+  
   
