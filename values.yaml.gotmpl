@@ -1,0 +1,6 @@
+meta:
+  name: {{ requiredEnv "APP_NAME" }}
+  env: {{ requiredEnv "ENV" }}
+  version: {{ requiredEnv "VERSION" | quote }}
+  squad: {{ requiredEnv "SQUAD" }}
+  business: {{ requiredEnv "BUSINESS" }}

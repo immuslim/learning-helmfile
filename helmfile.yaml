@@ -38,12 +38,15 @@ releases:
     wait: true
     values:
       - {{ requiredEnv "ENV" }}/server.yaml
+      - values.yaml.gotmpl
       - volume.yaml
 
   - name: {{ requiredEnv "APP_NAME" }}-config-{{ requiredEnv "ENV" }}
     namespace: default
     chart: kitabisa/config
     version: ~0.4.0
+    values:
+      - values.yaml.gotmpl
     secrets:
       - {{ requiredEnv "ENV" }}/config.yaml
 
