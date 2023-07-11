@@ -29,7 +29,7 @@ releases:
     values:
       - stg/nginx.yaml
 
-  - name: server
+  - name: {{ requiredEnv "APP_NAME" }}-server-{{ requiredEnv "ENV" }}
     namespace: default
     chart: kitabisa/app
     version: 0.17.8-alpha.4
@@ -37,9 +37,15 @@ releases:
       tools: server
     wait: true
     values:
-      - stg/server.yaml
-      - stg/config.yaml
+      - {{ requiredEnv "ENV" }}/server.yaml
       - volueme.yaml
+
+  - name: {{ requiredEnv "APP_NAME" }}-config-{{ requiredEnv "ENV" }}
+    namespace: {{ requiredEnv "APP_NAME" }}
+    chart: kitabisa/config
+    version: ~0.4.0
+    values:
+      - {{ requiredEnv "ENV" }}/config.yaml
 
   
 
