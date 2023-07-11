@@ -1,3 +1,10 @@
+meta:
+  name: "lorem-ipsum"
+  env: "lorem-ipsum"
+  version: "lorem-ipsum"
+  squad: "lorem-ipsum"
+  business: "lorem-ipsum"
+
 image:
   repository: "nginx"
   tag: latest
@@ -9,6 +16,6 @@ server:
 
   liveness:
     enabled: false
-    
+
   readiness:
     enabled: false
