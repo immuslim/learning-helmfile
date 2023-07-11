@@ -3,7 +3,7 @@ repositories:
     url: https://charts.bitnami.com/bitnami
 
   - name: kitabisa
-    url: chart.kitabi.se
+    url: https://chart.kitabi.se
     username: rider
     password: H2m5A4a5bHmY5jG6
 
