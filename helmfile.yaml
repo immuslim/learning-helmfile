@@ -38,7 +38,7 @@ releases:
     wait: true
     values:
       - {{ requiredEnv "ENV" }}/server.yaml
-      - volueme.yaml
+      - volume.yaml
 
   - name: {{ requiredEnv "APP_NAME" }}-config-{{ requiredEnv "ENV" }}
     namespace: {{ requiredEnv "APP_NAME" }}
