@@ -1,8 +1,0 @@
-auth:
-  password: "superpassword"
-# extraEnvVars:
-# - name: PLAYER_INITIAL_LIVES
-#   valueFrom:
-#     configMapKeyRef:
-#       name: game-demo           # The ConfigMap this value comes from.
-#       key: player_initial_lives # The key to fetch.
