@@ -41,7 +41,7 @@ releases:
       - volume.yaml
 
   - name: {{ requiredEnv "APP_NAME" }}-config-{{ requiredEnv "ENV" }}
-    namespace: {{ requiredEnv "APP_NAME" }}
+    namespace: default
     chart: kitabisa/config
     version: ~0.4.0
     secrets:
