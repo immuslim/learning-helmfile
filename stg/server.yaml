@@ -19,3 +19,7 @@ server:
 
   readiness:
     enabled: false
+
+autoscaling:
+  minReplicas: 1
+  maxReplicas: 2
