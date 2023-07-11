@@ -13,7 +13,7 @@ releases:
     chart: bitnami/redis
     version: ~11.13.0
     wait: true
-    secrets:
+    values:
       - {{ requiredEnv "ENV" }}/redis.yaml
 
   - name: {{ requiredEnv "APP_NAME" }}-nginx-{{ requiredEnv "ENV" }}
