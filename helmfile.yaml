@@ -9,15 +9,15 @@ repositories:
 
 
 releases:
-  - name: rabbitmq
-    namespace: default
-    chart: bitnami/rabbitmq
-    version: ~11.13.0
-    labels:
-      tools: rabbitmq
-    wait: true
-    secrets:
-      - stg/rabbitmq-secret.yaml.enc
+  # - name: rabbitmq
+  #   namespace: default
+  #   chart: bitnami/rabbitmq
+  #   version: ~11.13.0
+  #   labels:
+  #     tools: rabbitmq
+  #   wait: true
+  #   secrets:
+  #     - stg/rabbitmq-secret.yaml.enc
 
   - name: nginx
     namespace: default
@@ -27,7 +27,7 @@ releases:
       tools: nginx
     wait: true
     values:
-      - stg/nginx.yaml
+      - {{ requiredEnv "ENV" }}/nginx.yaml
 
   - name: {{ requiredEnv "APP_NAME" }}-server-{{ requiredEnv "ENV" }}
     namespace: default
