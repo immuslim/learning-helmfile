@@ -44,7 +44,7 @@ releases:
     namespace: {{ requiredEnv "APP_NAME" }}
     chart: kitabisa/config
     version: ~0.4.0
-    values:
+    secrets:
       - {{ requiredEnv "ENV" }}/config.yaml
 
   
