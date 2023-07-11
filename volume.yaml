@@ -1,0 +1,3 @@
+configMaps:
+  envFrom:
+    - "{{ .Values.meta.name }}-config-{{ .Values.meta.env }}"

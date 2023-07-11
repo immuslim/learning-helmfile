@@ -38,6 +38,8 @@ releases:
     wait: true
     values:
       - stg/server.yaml
+      - stg/config.yaml
+      - volueme.yaml
 
   
 
