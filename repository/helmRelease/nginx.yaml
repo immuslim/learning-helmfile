@@ -15,8 +15,8 @@ spec:
         namespace: flux-demo
       interval: 1m
   values:
-    replicaCount: 10
+    replicaCount: 1
   valuesFrom:
   - kind: ConfigMap
     name: prod-env-values
-    valuesKey: values-secret.yaml
+    valuesKey: "./repository/helmRelease/values-secret.yaml"
