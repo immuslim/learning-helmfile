@@ -16,3 +16,7 @@ spec:
       interval: 1m
   values:
     replicaCount: 10
+  valuesFrom:
+  - kind: ConfigMap
+    name: prod-env-values
+    valuesKey: values-secret.yaml
