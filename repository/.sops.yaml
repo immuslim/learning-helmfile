@@ -1,0 +1,7 @@
+# creation_rules:
+#     - pgp: >-
+#        BA568E0BE2D8970761067E870CAD9ED30F71B1BE
+creation_rules:
+  - path_regex: .*.yaml
+    encrypted_regex: ^(data|stringData)$
+    pgp: BA568E0BE2D8970761067E870CAD9ED30F71B1BE
