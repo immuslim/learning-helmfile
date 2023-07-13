@@ -7,12 +7,12 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: bitnami/redis
+      chart: redis
       version: '17.11.8'
       sourceRef:
         kind: HelmRepository
         name: bitnami-repository
-        namespace: flux-demo
+        namespace: flux-system
       interval: 1m
   values:
     architecture: standalone 
