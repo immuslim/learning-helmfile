@@ -7,11 +7,11 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: nginx
+      chart: bitnami/nginx
       version: '15.1.0'
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: bitnami-repository
         namespace: flux-demo
       interval: 1m
   values:
