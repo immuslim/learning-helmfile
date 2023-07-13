@@ -3499,6 +3499,11 @@ spec:
       labels:
         app: source-controller
     spec:
+      tolerations:
+      - key: "node-role"
+        operator: "Equal"
+        value: "app-standard"
+        effect: "NoExecute"
       containers:
       - args:
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
